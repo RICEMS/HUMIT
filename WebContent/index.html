@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+		
+            body {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+
+			img {
+				width: 50%;
+				height: 50%;
+				}
+				
+			#fittext {
+				display: block;
+				text-align: center;
+				font-style: italic;
+				margin: 5% auto 5%;
+			}
+			
+			.hidebutton {
+			filter:alpha(opacity=0.01);
+			filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0.01);
+			-moz-opacity:0.01;
+			-webkit-opacity:0.01;
+			position:relative;
+			z-index:2;
+			}
+			
+			.buttonImage {
+			position:relative;
+			top:-50px;
+			z-index:1;
+			}
+			
+			.instruction {
+			font-style: italic;
+			
+			}
+			
+			
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script type="text/javascript">    
+        function FileUpload_onselect()
+        {
+            var path;
+            path=document.forms[0].FileUpload.value;      //C:\Documents and Settings\hud\桌面\AddFile.jpg
+            var aa;
+            aa=path.split('.');
+            document.all('TbxName').value=aa[aa.length-1];  //jpg 结果
+
+            var name;
+            name=path.split('\\'); 
+            var bb=name[name.length-1];             
+            document.getElementById("chooseFile").value=bb.substr(0,bb.indexOf('.'));  //AddFile 结果
+        }
+    </script>
+    </head>
+    <body>
+	
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+	
+    <div class="jumbotron" align="center">
+      <div class="container">
+        <img src="img/humitlogo.png" alt="humitlogo"/>
+        <p id="fittext">Composing music is soooooooooo easy!<br>Turn your hum into melodies</p> 
+        
+        <p class="instruction"> Step 1: Please upload a .wav file. </p>
+        <form action="/Humit/doUpload" method="post" enctype="multipart/form-data" name="form1" id="form1">
+		<input type="file" name="file" id="file" /> 
+		
+		<div align="center">
+		
+		<p class="instruction"> Step 2: Please choose the output instrument. </p>
+		<select id="Instrument" name="Instrument">
+		<option value="0">--Select Instrument--</option>
+		<option value="Piano">Piano</option>
+		<option value="Violin">Violin</option>
+		<option value="Guitar">Guitar</option>
+		<option value="Flute">Flute</option>
+		</select>
+		</div>
+		<!--<INPUT type="button" value="Button" style="background-image:img/playsound.png">-->
+		<!--<button type="button" class="hidebutton" >ME</button>-->
+		<!-- <img class="buttonImage" src="img/play.png" /> -->
+		<br>
+		<input type="submit" class="btn btn-primary btn-lg" value="Hum It!"/>
+		 </form>
+      </div>
+    </div>
+        
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-10">
+		<!--expand & hide -->  
+<a id="show_id" onclick="document.getElementById('spoiler_id').style.display=''; 
+	document.getElementById('show_id').style.display='none';" class="link"
+	>Don't know how to use it?</a>
+<span id="spoiler_id" style="display: none">
+	
+	<br>
+		<p>Have you ever wanted to play an instrument but never had a chance to learn? Do you want to compose your own music but have no idea how? Our App makes it possible for you to input what ever sound and output it in an instrument of your choice! </p>
+		<p> Just hum,sing,or play your instrument to this App, and we will output the desired instrument sound, output your sheet music, and MORE!</p>
+	<a onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_id').style.display='';" class="link">Ok, getcha!</a>
+	</span>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ 	<script src="js/jquery.fittext.js"></script>
+	<script type="text/javascript">
+		$("#fittext").fitText(1.5, {maxFontSize: '32px', minFontSize: '1px'});	
+	</script>
+
+          
+	   <!--
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+		-->
+      </div>
+	  </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Team HumIt</p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

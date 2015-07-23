@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Humit</display-name>
+  
+  <servlet>
+    <servlet-name>processUpload</servlet-name>
+    <servlet-class>nd.servlets.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>sendMIDI</servlet-name>
+  	<servlet-class>nd.servlets.SendMIDIServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>processUpload</servlet-name>
+    <url-pattern>/doUpload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>sendMIDI</servlet-name>
+  	<url-pattern>/getMIDI</url-pattern>
+  </servlet-mapping>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+
+  </welcome-file-list>
+  
+  <context-param>
+    <param-name>MusicDir</param-name>
+    <param-value>MusicDir</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>NDResDir</param-name>
+  	<param-value>NDRes</param-value>
+  </context-param>
+</web-app>
